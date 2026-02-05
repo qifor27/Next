@@ -1,0 +1,116 @@
+Learning NextJs
+chapter 1
+- Folder structure
+
+/app : contain all the routes,components, and logic for your application
+/app/lib : contains function used in your application, such as reusable utility functions and data fetching functions
+/app/ui : contains all the UI components for your application, such as cars,tables, and forms.To save time, we've pre-style
+/public : contains all the static assets fo your application,such as images
+Config Files : ex: next.config.ts a the root of your application
+
+by using TypeScript,you can ensure you don't accidentally pass te wrong data format to your components or database like passing a string instead of a number to invoice amount
+
+chapter 2
+- CSS Styling
+
+/app/ui/global.css
+you can use this file to add CSS rules to all the routes in your application - such ass CSS reset rules, site-wide styles for HTML elements like links and more
+we can import global.css in any component in your top-level component
+
+Tailwind is a CSS framework that speeds up the development process by allowing you to 	quickly write utility clasess directly i your React code
+
+- Using the clsx library to toggle class names
+
+clsx is a library that lets you toggle class names easily. We recommended taking a look at documentation for more details,but here'sthe basic usage
+
+chapter 3
+-Optimizing fonts and images
+in the previous chapter, you learned how to style your Next.js application
+
+chapter 4 
+- creating layouts and pages 
+
+Nested rounting fil system routing where folders are used to create nested routes.Each folder represents a route segmnen that maps to a URLsegment.
+
+we can create seperate UIs for each route using layout.tsx and page.tsx files
+page.tsx s a speciial Next.js file that exports a react component, and it's required for the route to be accessible. in your application, you already hava a page file: /app/page.tsx
+
+To create a nested route, you can nest folders inside each other and add page.tsx files inside them, For example:
+/app/dashboard/page.tsx is a accosiated with hte /dashboard path
+
+By having a special name for page files,Next.js allows you to colocate UI components, test files and other related code with your routes.Only the content inside page file will be publicy accesible
+
+chapter 5
+Navigation Between Pages
+in the previous chapter, we create the dasboard layout and pages now, lets add some links to allow users to navigate between the dashboard routes
+
+when we use <a></a> HTML element. At the moment, the sidebar link use <a> elements, but notice what happens when you navigate between the home,invoices, and customers pages on yout browser
+there's full page refresh to each page navigation
+
+the <Link> component
+in Next.js, you can use the
+
+chapter 7 -- Fetching Data
+API layer
+APIs are an intermediary layer between your application code and database. There are a few cases where you might use an API:
+in Next.js, you can create API endpoints using Route Handlers
+
+chapter 10 - Adding Search and Pagination
+
+<Search/> allows user to search for specific invoices
+<Pagination/> allows user to navigate between pages of invoices
+<Table/> displays the invoices
+
+why use URL search params?
+
+we use URL search params to manage the search state
+
+couple of benefits of implementing search with URL params:
+
+- bookmark and shareable URls: since the search parameters are in the UR,
+users can bookmark the current state
+
+- Server-side rendering: URL parameters can be directly consumed on the Server
+to render the initial state, making it easier to handle server rendering.
+
+- Analyticss and tracking: having search queries and filters directly in the URL makes it easier
+to track user behavior withou require additional client-side logic.
+
+Adding the search functionally
+these are the Next.js client hooks that you'll use to implement
+the search functionality
+
+- useSearchParams-Allows you to acces the parameters of the current URL. For example,
+the search params for this URL /dashboard/invoices?page=1&query=pending
+would look like this: {page: '1', query: 'pending'}.
+
+- usePathname - Lets you read the current URL's pathname,
+For example, for the route /dashboard/invoices, usePathname would return '/dashboard/invoices'.
+
+-useRouter - Enables navigation between routes within client components prorammatically. There
+are multiple methods you can use.
+
+Here's a quick overview of the implementation steps:
+
+    Capture the user's input.
+    Update the URL with the search params.
+    Keep the URL in sync with the input field.
+    Update the table to reflect the search query.
+
+URLSearchParams s a Web API that provides utility methods for
+manipulating the URL query parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
