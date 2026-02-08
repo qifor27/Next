@@ -100,6 +100,45 @@ Here's a quick overview of the implementation steps:
 URLSearchParams s a Web API that provides utility methods for
 manipulating the URL query parameters
 
+chapter 11 - mutating data
+
+react server actions allow us torun the asynchronous code direcly on the serber
+they eliminate the need for create API endpoints to mutate your data
+
+they include features like encrypted clsures,strict input checks,error message hashing
+
+- using forms with Server actions
+in react you can use the action attrubute in the <form>
+element to invoke actions. The actions will automtically receive the native
+FormData object as an argument
+
+Next.js with server actions
+
+Server Actions are also deeply integrated with Next.js caching and revalidation mechanisms
+
+revalidatePath() is a Next.js function that allows you to revalidate a specific path in your application
+
+Creating an invoice
+Here are the steps you'll take to create a new invoice:
+
+    Create a form to capture the user's input.
+    Create a Server Action and invoke it from the form.
+    Inside your Server Action, extract the data from the formData object.
+    Validate and prepare the data to be inserted into your database.
+    Insert the data and handle any errors.
+    Revalidate the cache and redirect the user back to invoices page.
+
+The updating invoice form is similar to the create an invoice form, except you'll need to pass the invoice id to update the record in your database. Let's see how you can get and pass the invoice id.
+
+These are the steps you'll take to update an invoice:
+
+    Create a new dynamic route segment with the invoice id.
+    Read the invoice id from the page params.
+    Fetch the specific invoice from your database.
+    Pre-populate the form with the invoice data.
+    Update the invoice data in your database.
+
+
 
 
 
